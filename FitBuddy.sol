@@ -160,9 +160,9 @@ contract FitBuddy is ERC20 {
         _symbol = symbol_;
         _decimals = decimals_;
         _mint(tokenOwnerAddress, totalSupply);
-
+        
         // pay the service fee for contract deployment
-          feeReceiver.transfer(msg.value);
+        feeReceiver.transfer(msg.value);
     }
 
     function burn(uint256 value) public {
