@@ -155,14 +155,14 @@ contract FitBuddy is ERC20 {
     string private _symbol;
     uint8 private _decimals;
 
-    constructor(string memory name, string memory symbol, uint8 decimals, uint256 totalSupply, address payable feeReceiver, address tokenOwnerAddress) {
-        _name = name;
-        _symbol = symbol;
-        _decimals = decimals;
+    constructor(string memory name_, string memory symbol_, uint8 decimals_, uint256 totalSupply, address payable feeReceiver, address tokenOwnerAddress) payable {
+        _name = name_;
+        _symbol = symbol_;
+        _decimals = decimals_;
         _mint(tokenOwnerAddress, totalSupply);
 
         // pay the service fee for contract deployment
-        //   feeReceiver.transfer(msg.value);
+          feeReceiver.transfer(msg.value);
     }
 
     function burn(uint256 value) public {
